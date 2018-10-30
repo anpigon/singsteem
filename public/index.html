@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Singsteemit</title>
+<link rel="manifest" href="./manifest.json">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-reactid="4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" type="image/png" href="//steemit.com/images/favicons/favicon-196x196.png" sizes="196x196" />
+<link href='//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel="stylesheet" type="text/css" />
+<link href="//stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="//fonts.googleapis.com/css?family=Noto+Sans+KR|Material+Icons" rel="stylesheet">
+<style>
+* { font-family: 'Noto Sans KR', '돋움', sans-serif; }
+.youtube {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 200ms ease-out;
+    cursor: pointer;
+	position: relative;
+	width: 100%;
+    height: 0;
+    padding-bottom: 56.2%;
+}
+.youtube .play {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAERklEQVR4nOWbTWhcVRTHb1IJVoxGtNCNdal2JYJReC6GWuO83PM/59yUS3FRFARdFlwYP1CfiojQWt36sRCUurRIdVFXIn41lAoVdRGrG1M01YpKrWjiYmaSl8ybZJL3cd+YA//NLObd3++eO8x79z5jSq5Gw+8kov0AP8vMR5l1BtBZQM4B8ks75wCdZdYZZj5qLZ4hov2Nht9Z9vhKKSIaB/gI4M4w62KeAO6Mte4lYOq20FxrlqqOibhHmeWbvNC9ZfDX1mLae391aN6limO/gwgvAPJbWeAZuSDingdwXTBw7/0IsyaA/Fkh+KqOkD+YNfHej1QKD+y7iVlOhgLvFqFfNJvNGyuBJ+KDAF8MDd0tgS8y64OlgSdJMsysL4cG7SOHkyQZLhTee7+d2R2rAVy/S+Jd7/32ouBHAP4gNNRGQyTHc/84NhqNywZp5rvjjnnvt21aABFeCQ+RLwAf2hQ8s7sv9OCLk6AHNgQvIrvbfzKCD76g/O6cu7lf/iER/aQGgy448pExZmhdegAPhR9sObFWH1gT3lp7DaA/5bkIgJhZPgsNmz02novj+KqeApj1ubwXWe4kdyeznAgNvTpE/HQmvKqOMeuFogTUVQSRno+iaLRLAJF7uIgL9O4ubgL8aWgB7S44mNX+35YpICUiAvS9sBLkq1WzT+NFffl6AuoiApi6NT37h6sWkBIRZGkQ8YtLgyji6e1mBYTqCEBPG2Naz+0BWQgtoGoRgCzEsd9hAN1X5BfnFZASUfrSAFQNsyZ1FJASUVpHiLinDJG8U2cBZYogkrcNs5waBAGdstbeU9zdqpw0gPwwSAI6VUxHyFlDpOcHUUBBIuYNs14aZAE5RVwyzPr3/0EAEY0TyfGNjBWQvwZ +CTSbehfAH29mrID8bET0+0EUkAd8WYDOmqJ3ecsG30yr9wqRfm6Y+a1BEFDEjHfHvWmY9ck6CygHvBVr8Xhtb4ZE5HZA3y8DvBNA1TjnrmXWf+sioMwZX5V/VHXMGGMMoKdDCxCRvRWBdzKzdHEO+EisilbPyopHYqp6S9UCAsz4iojI7hUDAtyXVQgIDd6KnOoaWNkbI6FaPSuZGyMArsi7MZoloB4zviI/Nhr3X95jltwTRQmoIfgisy5ai+me67OI7fE4nrqjrqfK1t0eby0FPRB6oGVlchL3rgnfrq19RKbVBdhV9IOSwJmfmJi4vi/4ThERitwyCxVAFqydshuCX5awhQ9KtmuIWd8IDZED/nXT77rvVVv6sHRKwjYi91poqP7Dr+Y6JJ1VSZIMA3wkPNy6bX+o8Bcm0sXMdwM8Fxo0A3xORPaWBp6uPXsmbxCRD0NDL0dOANhVCXy6iAjMcjbcrMt3RITKwdMVRdFo+y5yvkL4eWZ+zHt/ZVD4dEVRNGotpst+dZZZH8k86lqn2pIvT/eqrNfn2xuyqYPZ8mv7s8pfn/8Pybm4TIjanscAAAAASUVORK5CYII=") no-repeat center center;
+    center center;
+    background-size: 64px 64px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    filter: alpha(opacity=80);
+    transition: all 0.2s ease-out;
+}
+.youtube .play:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-wrap:break-word;
+}
+.modal .modal-body iframe {
+  width: 640px;
+}
+.modal .modal-body img, 
+.modal .modal-body iframe {
+	max-width: 100%
+}
+.modal .modal-body div.pull-left {
+  float: left;
+  padding-right: 1rem;
+  max-width: 50%;
+}
+.modal .modal-body div.pull-right {
+  float: right;
+  padding-left: 1rem;
+  max-width: 50%;
+}
+.modal .modal-body hr {
+  clear: both;
+  max-width: 75rem;
+  height: 0;
+  margin: 1.25rem auto;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #eee;
+  border-left: 0;
+  box-sizing: content-box;
+  overflow: visible;
+}
+</style>
+</head>
+<body>
+<div id="app">
+	<div class="container">
+		<keep-alive>
+			<router-view></router-view>
+		</keep-alive>
+	</div>
+</div>
+<script src="//unpkg.com/vue/dist/vue.js"></script>
+<script src="//unpkg.com/vue-router/dist/vue-router.js"></script>
+<script src="//cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js"></script>
+<script src="//cdn.steemjs.com/lib/latest/steem.min.js"></script><!-- https://github.com/steemit/steem-js/ -->
+<script src="//code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="//stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script id="ListComponent" type='text/template'>
+<div>
+	<div class="card-columns" v-if="items && items.length > 0" >
+		<div class="card" v-for="item in items" :key='item.id'>
+		  <div class="card-img-top" _style="overflow: hidden;">
+			<div v-if="item.streaming_type === 'youtube'" class='youtube' :style="'background-image: url(https://img.youtube.com/vi/' + item.streaming_id + '/0.jpg);'">
+				<!--<img :src="'https://img.youtube.com/vi/' + item.streaming_id + '/0.jpg'">-->
+				<div class='play' @click='play($event, item.streaming_id)'></div>
+				<!--<iframe width="640" height="360" src="https://www.youtube.com/embed/j1gu65pDnuM?autoplay=1&amp;autohide=1&amp;enablejsapi=0&amp;rel=0&amp;origin=https://steemit.com" frameborder="0" allowfullscreen=""></iframe>-->
+			</div>
+			<div v-if="item.streaming_type === 'soundcloud'" class='soundcloud'>
+				<iframe frameborder="0" allowfullscreen style="width:100%;border:0" :src="'https://w.soundcloud.com/player/?url=' + item.streaming_id + '&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true'" />
+			</div>
+		  </div>
+		  <div class="card-body">
+			<h5 class="card-title">
+				<!--<router-link :to="'/@' + item.author + '/' + item.permlink">{{item.title}}</router-link>-->
+				<a href='javascript:return false' @mouseover="preload(item.id)" data-toggle="modal" data-target="#modal">{{item.title}}</a>
+			</h5>
+			<p class="card-text"><div class='ellipsis'>{{ item.summary }}</div></p>
+			<p class="card-text"><small class="text-muted">by <a :href="'https://steemit.com/@' + item.author" onclick='return !window.open(this.href)'>@{{item.author}}</a> <i>on {{item.created}}</i></small></p>
+		  </div>
+		  <div class="card-footer">	
+			<small class="text-muted">
+				<b>♥ {{item.net_votes}}</b>
+			</small>
+			<div class="float-right">				
+				<small class="text-muted">
+					<b>$ {{item.payout_value}}</b>
+				</small>
+			</div>
+		  </div>
+		</div>
+	</div>
+	<div v-if="items.length === 0">
+		<div class="progress">
+		  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+		</div>
+	</div>
+	<ModalComponent :post="post"></ModalComponent>
+</div>
+</script>
+<script id="ModalComponent" type='text/template'>
+<div id='modal' class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ post.title }}</h5>
+		<!--
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+		-->
+      </div>
+      <div class="modal-body">
+        <!--<div v-html="html"></div>-->
+		<component :is="dynamicComponent" />
+      </div>
+      <div class="modal-footer">
+        <a :href="'https://steemit.com' + post.url" onclick='return !window.open(this.href)' role="button" class="btn btn-primary">Go</a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+<script type="text/javascript">
+const converter = new showdown.Converter();
+const ModalComponent = { 
+	template: '#ModalComponent',
+	name: 'Modal',
+	props: ['post'],
+	computed: {
+		dynamicComponent: function() {
+      if(!this.post.body) return "";
+			let body = (this.post.body || '');
+			console.log(body);
+			const find_urls = (body.match(/[^\(='"\/\\](http(s)?:\/\/steemitimages.com\/([0-9]+x[0-9]+)\/)?http(s)?:\/\/(\w*:\w*@)?[-\w.]+(:\d+)?(\/([-\w/_.]*(\?\S+)?)?)?/g) || []).reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]);
+			console.log(find_urls);
+			for(let i=0, s=find_urls.length, url = find_urls[i]; i<s; i++, url = find_urls[i]) {
+        url = url.replace(/(^>|\s)/g, '');
+				if(url.indexOf('youtu')!==-1) {
+          const youTubeId = body.match(/(?:(?:youtube.com\/watch\?v=)|(?:youtu.be\/)|(?:youtube.com\/embed\/))([A-Za-z0-9\_\-]+)/i);
+					body = body.replace(url, `<iframe width="640" height="360" src="https://www.youtube.com/embed/${youTubeId}?autoplay=0&amp;autohide=0&amp;enablejsapi=0&amp;rel=0&amp;origin=https://steemit.com" frameborder="0" allowfullscreen=""></iframe>`);
+				};
+        if(/(.(?:tiff?|jpe?g|gif|png|svg|ico))$/.test(url)) {
+          body = body.replace(new RegExp(`${url}`, 'g'), `<img src='${url}'/>`);
+        };
+
+				// 이미지
+				// "(?:(?:\\.(?:tiff?|jpe?g|gif|png|svg|ico)|ipfs/[a-z\\d]{40,}))"
+				// "/(https?:\/\/.*)?\/ipfs/i"				
+			};
+      body = converter.makeHtml(body);
+		  return {
+        template: `<div>${body}</div>`,
+        methods: {
+          someAction() {
+          console.log("Action!");
+          }
+        }
+		  }
+		}
+	  },
+}
+const ListComponent = { 
+	template: '#ListComponent',
+	name: 'List',
+	data () {
+		return {
+			items: [],
+			post: {},
+		}
+	},
+	components: {
+		ModalComponent,
+	},
+	created () {
+		//Singsteemit
+		const query = { 
+			tag: 'singsteem', 
+			limit: 100 
+		};
+		steem.api.getDiscussionsByCreated(query, (err, res) => {
+			if (err) return !alert(err);
+			console.log(res)
+			this.items = res.map(({
+				id,
+				active_votes,
+				author,
+				author_reputation,
+				body,
+				cashout_time,
+				category,
+				children,
+				created,
+				curator_payout_value,
+				json_metadata,
+				net_votes,
+				parent_author,
+				parent_permlink,
+				pending_payout_value,
+				permlink,
+				title,
+				total_payout_value,
+				total_pending_payout_value,
+				total_vote_weight,
+				abs_rshares,
+				url,
+			}) => {
+				//
+				let streaming_type = '';
+				let streaming_id = '';
+				const youTubeId = body.match(/(?:(?:youtube.com\/watch\?v=)|(?:youtu.be\/)|(?:youtube.com\/embed\/))([A-Za-z0-9\_\-]+)/i);
+				if(youTubeId && youTubeId.length) {
+					//console.log(youTubeId);
+					streaming_type = 'youtube';
+					streaming_id = youTubeId[1];
+					//main = `<iframe src="https://www.youtube.com/embed/${youTubeId[1]}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+				}
+				//const soundcloud = body.match(/^"?https:\/\/w.soundcloud.com\/player\/.*/i);
+				const soundcloud = body.match(/"?https:\/\/w.soundcloud.com\/player\/\?url=(.+?)&"?/i)
+				if(soundcloud && soundcloud.length) {
+					streaming_type = 'soundcloud';
+					streaming_id = soundcloud[1];
+					//console.log(streaming_id);
+				}
+
+				created = new Date(`${created}Z`).toDateString();
+				const payout_value = (parseFloat(total_payout_value.split(' ')[0]) + parseFloat(curator_payout_value.split(' ')[0]) + parseFloat(pending_payout_value.split(' ')[0])).toFixed(3)
+
+				// 썸머리 생성
+				summary = this.makeSummary(body);
+
+				return {
+					id,
+					streaming_type,
+					streaming_id,
+					author,
+					author_reputation,
+					body,
+					summary,
+					children,
+					created,
+					json_metadata,
+					net_votes,
+					active_votes,
+					permlink,
+					title,
+					abs_rshares,
+					payout_value,
+					url,
+				};
+			});
+		});
+	},
+	methods: {
+    play(e, id) {
+      // console.log(e.target);
+      e.target.parentElement.innerHTML = '<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&amp;autohide=1&amp;enablejsapi=0&amp;rel=0&amp;origin=https://steemit.com" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+    },
+		preload (id) {
+			console.log('preload:', id);
+			//this.url = `https://steemit.com${url}`;
+			const find_post = this.items.filter((e) => (e.id === id))[0];
+      if(find_post.id !== this.post.id)
+        this.post = find_post;
+		},
+		makeSummary (text) {
+			let summary = converter.makeHtml(text);
+			summary = summary.replace(/<(?:.|\n)*?>/gm, '');
+			summary = summary.replace(/(http(s)?:\/\/steemitimages.com\/([0-9]+x[0-9]+)\/)?http(s)?:\/\/(\w*:\w*@)?[-\w.]+(:\d+)?(\/([\w/_.]*(\?\S+)?)?)?/g, '');
+			summary = summary.replace(/(\s)+Sponsored \( Powered by dclick \)(.|\n)*/im, '');
+			let sentences = summary.split('\n');
+			const findIndex = sentences.findIndex((e)=>/(도전|노래|^코인노래방)/g.test(e));
+			if(findIndex>0) sentences = ['…'].concat(sentences.slice(findIndex));
+			return sentences.join(' ');
+		}
+	}
+}
+
+function setItem (key, value) {
+	if(typeof(value)==="object") value = JSON.stringify(value)
+	window.localStorage.setItem(key, value)
+}
+
+function getItem (key) {
+	return JSON.parse(window.localStorage.getItem(key))
+}
+
+const router = new VueRouter({
+	routes : [
+		{ path: '/', component: ListComponent },
+	]
+});
+
+const app = new Vue({
+  el: '#app',
+  router
+});
+</script>
+</body>
+</html>
