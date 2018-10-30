@@ -6,6 +6,6 @@ var app = express();
 //   res.send('hello world');
 // });
 
-app.use(express.static('public'));
+app.use(express.static('.'));
 
 app.listen(3000);
